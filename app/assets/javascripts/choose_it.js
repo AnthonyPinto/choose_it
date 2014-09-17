@@ -3,8 +3,10 @@ window.ChooseIt = {
   Collections: {},
   Views: {},
   Routers: {},
+  
   initialize: function() {
-    alert('Hello from Backbone!');
+    new ChooseIt.Routers.Router({$rootEl: $('div.content')});
+    Backbone.history.start();
   }
 };
 

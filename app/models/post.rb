@@ -11,5 +11,19 @@
 #
 
 class Post < ActiveRecord::Base
-  validates 
+  validates :title, :body, presence: true
+  
+  has_many(
+    :children,
+    class_name: 'Post',
+    foreign_key: :parent_id,
+    primary_key: :id
+  )
+  
+  belongs_to(
+    :parent,
+    class_name: 'Post',
+    foreign_key: :parent_id,
+    primary_key: :id
+  )
 end
